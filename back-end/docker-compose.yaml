@@ -1,0 +1,10 @@
+version: "3.8"
+services:
+  spn-db:
+    image: postgres
+    ports:
+      - "5430:5432"
+    environment:
+      POSTGRES_DB: spn
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: "@Rojam456"
