@@ -1,0 +1,24 @@
+spring:
+  application:
+    name: spn
+    version: v0.0.1
+  datasource:
+    url: jdbc:postgresql://localhost:5430/spn
+    username: admin
+    password: "@Rojam456"
+    hikari:
+      maximum-pool-size: 5
+
+camunda:
+  bpm:
+    admin-user:
+      id: xiaojam
+      password: "@Rojam456"
+
+setting:
+  security:
+    application:
+      key: "spn-key-secret"
+      value: "53257172-B163-4FBC-8E9E-48DD27E4575C"
+  swagger:
+    version:
