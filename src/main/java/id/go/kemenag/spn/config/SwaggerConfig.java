@@ -1,20 +1,21 @@
 package id.go.kemenag.spn.config;
 
-import id.go.kemenag.spn.config.property.ApplicationSettingProperty;
+import io.swagger.v3.oas.annotations.OpenAPIDefinition;
+import io.swagger.v3.oas.annotations.enums.SecuritySchemeType;
 import io.swagger.v3.oas.annotations.info.Info;
-import io.swagger.v3.oas.annotations.info.License;
-import io.swagger.v3.oas.models.Components;
-import io.swagger.v3.oas.models.OpenAPI;
-import lombok.AllArgsConstructor;
-import lombok.Value;
-import org.springframework.context.annotation.Bean;
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
+import io.swagger.v3.oas.annotations.security.SecurityScheme;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
-@AllArgsConstructor
+@OpenAPIDefinition(
+    info = @Info(title = "SPN API", version = "v1"),
+    security = @SecurityRequirement(name = "basicAuth")
+)
+@SecurityScheme(
+    name = "basicAuth",
+    type = SecuritySchemeType.HTTP,
+    scheme = "basic"
+)
 public class SwaggerConfig {
-
-    private ApplicationSettingProperty applicationSettingProperty;
-
 }
-
