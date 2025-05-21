@@ -1,6 +1,5 @@
 package id.go.kemenag.spn.config.property;
 
-import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotBlank;
 import lombok.Data;
 import org.springframework.boot.context.properties.ConfigurationProperties;
@@ -11,13 +10,11 @@ import org.springframework.context.annotation.Configuration;
 @ConfigurationProperties(prefix = "setting")
 public class ApplicationSettingProperty {
 
-    @Valid
     private Security security;
 
     @Data
     public static class Security {
 
-        @Valid
         private BaseSecurity application;
 
         @Data
@@ -28,6 +25,21 @@ public class ApplicationSettingProperty {
 
             @NotBlank
             private String value;
+        }
+    }
+
+    private Feature feature;
+
+    @Data
+    public static class Feature {
+
+        private Config config;
+
+        @Data
+        public static class Config {
+
+            private boolean featSkipApproach;
+            private boolean featReprocessApproach;
         }
     }
 }

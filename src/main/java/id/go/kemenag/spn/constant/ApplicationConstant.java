@@ -27,5 +27,10 @@ public class ApplicationConstant {
         SUPER_USER,
     }
 
+    public enum ProcessApproach {
+        SKIP,
+        REPROCESS,
+    }
+
     public static final String API_KEY_VALID_ATTRIBUTE = "IS_API_KEY_VALID";
 }

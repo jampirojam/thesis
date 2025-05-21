@@ -2,14 +2,11 @@ package id.go.kemenag.spn.config;
 
 import id.go.kemenag.spn.config.filter.InternalSecurityFilter;
 import id.go.kemenag.spn.config.property.ApplicationSettingProperty;
-import id.go.kemenag.spn.service.UserService;
 import lombok.AllArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.core.annotation.Order;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
-import org.springframework.security.config.Customizer;
 import org.springframework.security.config.annotation.method.configuration.EnableMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
@@ -21,8 +18,6 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.HttpStatusEntryPoint;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
-import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
-import org.springframework.security.web.util.matcher.OrRequestMatcher;
 
 @Configuration
 @EnableWebSecurity
@@ -56,7 +51,10 @@ public class SecurityConfig {
             .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
             .authenticationProvider(daoAuthenticationProvider())
             .authorizeHttpRequests(auth -> auth
+                .requestMatchers("/swagger-ui/**", "/v3/api-docs*/**").permitAll()
+                .requestMatchers("/camunda/**", "/camunda**").permitAll()
                 .requestMatchers("/public/**").permitAll()
+                .requestMatchers("/error").permitAll()
                 .anyRequest().permitAll()
             )
             .addFilterBefore(internalSecurityFilter, UsernamePasswordAuthenticationFilter.class)
