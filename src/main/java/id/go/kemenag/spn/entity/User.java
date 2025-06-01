@@ -43,26 +43,8 @@ public class User extends BaseEntity {
     private String password;
 
     @Column
-    private String provinceCode;
+    private String workplaceCode;
 
     @Column
-    private String provinceName;
-
-    @Column
-    private String cityCode;
-
-    @Column
-    private String cityName;
-
-    @Column
-    private String districtCode;
-
-    @Column
-    private String districtName;
-
-    @Column
-    private String subDistrictCode;
-
-    @Column
-    private String subDistrictName;
+    private String workplaceName;
 }

@@ -15,15 +15,15 @@ public class ApplicationConstant {
     }
 
     public enum ROLE {
-        // Petugas Urusan Nikah
-        VILLAGE_OFFICER,
+        // Petugas Pendaftaran Nikah di Desa
+        REGISTRAR,
         // Kepala Desa
-        VILLAGE_HEAD,
+        HEADMAN,
         // Petugas KUA
-        RELIGIOUS_AFFAIR_OFFICER,
+        OFFICER,
         // Kepala KUA
-        RELIGIOUS_AFFAIR_HEAD,
-        DEFAULT,
+        REVIEWER,
+        USER,
         SUPER_USER,
     }
 

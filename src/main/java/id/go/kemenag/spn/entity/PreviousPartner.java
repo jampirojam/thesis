@@ -56,6 +56,9 @@ public class PreviousPartner extends BaseEntity {
     private MarriageConstant.Religion religion;
 
     @Column
+    private String fatherName;
+
+    @Column
     private String provinceCode;
 
     @Column

@@ -2,7 +2,7 @@ package id.go.kemenag.spn.entity;
 
 import id.go.kemenag.spn.constant.MarriageConstant;
 import id.go.kemenag.spn.entity.base.BaseEntity;
-import jakarta.persistence.Column;
+import jakarta.persistence.*;
 import jakarta.validation.constraints.Size;
 import org.hibernate.annotations.UuidGenerator;
 
@@ -14,6 +14,18 @@ public class Groom extends BaseEntity {
     @Column
     @UuidGenerator(style = UuidGenerator.Style.AUTO)
     private UUID id;
+
+    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @JoinColumn(name = "groom_father_id", referencedColumnName = "id")
+    private GroomFather groomFather;
+
+    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @JoinColumn(name = "groom_mother_id", referencedColumnName = "id")
+    private GroomMother groomMother;
+
+    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @JoinColumn(name = "previous_partner_id", referencedColumnName = "id")
+    private PreviousPartner previousPartner;
 
     @Column
     private String firstName;
