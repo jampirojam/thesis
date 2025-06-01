@@ -15,7 +15,7 @@ public class Marriage extends BaseEntity {
     private UUID id;
 
     @Column
-    private LocalDateTime date;
+    private LocalDateTime datetime;
 
     // Mahar
     @Column
